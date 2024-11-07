@@ -14,14 +14,18 @@ h1, h2 {
     text-align: center;
 }
 
+.winnerMessage {
+    display: none;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    gap: 20px;
     width: 300px;
     height: 300px;
-    padding: 20px;
+    border: 2px solid black;
+    margin: 20px;
 }
   
 .cell {
