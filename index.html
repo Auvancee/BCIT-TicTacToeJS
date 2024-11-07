@@ -16,6 +16,27 @@
     <script src="script.js" defer></script>
 </head>
     <body>
-        
+        <main>
+            <!-- [1] Title Screen W/ Winner Message -->
+            <h1>Tic Tac Toe</h1>
+            <h2 id="winnerMessage" style="display: none;"></h2> <!-- [1.2] Winner Message (Displayed W/ Javascript) -->
+
+                <!-- [2] 3x3 TicTacToe Grid -->
+                <section class="grid">
+                    <div class="cell" id="cell-0"></div>
+                    <div class="cell" id="cell-1"></div>
+                    <div class="cell" id="cell-2"></div>
+                    <div class="cell" id="cell-3"></div>
+                    <div class="cell" id="cell-4"></div>
+                    <div class="cell" id="cell-5"></div>
+                    <div class="cell" id="cell-6"></div>
+                    <div class="cell" id="cell-7"></div>
+                    <div class="cell" id="cell-8"></div>
+                </section>
+
+            <!--[3] Button To Play Again -->
+            <button id="resetButton" onclick="resetGame()">Play Again</button> <!-- Reset button -->
+        </main>
+
     </body>
 </html>
