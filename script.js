@@ -3,11 +3,22 @@ const board = Array(9).fill(null);
 const winnerMessage = document.getElementById("winnerMessage"); 
 let currentPlayer = 'X'; // Tracks the current player ('X' or 'O')
 
-/*  [1.1] ← Notes → 
-- Array(9) fills the array as null (empty)
-- Getting the html of winnerMessage
-- X starts by default */
+for (let i = 0; i < 9; i++) {
+    document.getElementById(`cell-${i}`).addEventListener("click", function() {
+      cellClick(i);
+    });
+}
 
+/*  [1.1] ← Notes → 
+l2 - Array(9) fills the array as null (empty)
+l3 - Getting the html of winnerMessage
+l4 - X starts by default 
+
+l6 - We have a for loop with certain condition, 
+    - it loops through each cell, accessing the cell by index; 0, 1 etc
+    - doing the dom manipulation, with the click function. */
+
+    
 /* [2] Defining Winning Combinations Using an Array */
 const winningCombinations = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8], // Row Combo
@@ -51,7 +62,7 @@ l30 - const [a, b, c] = combo
 l31 - conditions
 - this checks if all 3 board positions or cells specified by 'a b c' consist of the current player symbol (X or O)
 - Since we're using &&, both conditions need to be true. If these conditions are true, we use the conditions
-    in [4] to output whether X or O won. */
+    in [4] to output whether X or O won.  !!! */
 
 
 
@@ -65,6 +76,7 @@ function cellClick(innerCells) {
       if (checkWin()) { // Check if the current player won
         winnerMessage.textContent = `${currentPlayer} wins!`;
         winnerMessage.style.display = "block"; // Show the winner message
+
       } else if (!board.includes(null)) { // If no empty cells remain, it's a tie
         winnerMessage.textContent = "It's a tie!";
         winnerMessage.style.display = "block"; // Show tie message
@@ -85,5 +97,16 @@ l31 - We have a checkWin Function condition, a follow up from cellClick.
     If all else fails, the current player will switch turns whichever is last played. */
 
 
+/* [5] Reset Function (To reset the game) */
+function resetGame() {
+    board.fill(null); // Clear the board array
+    currentPlayer = 'X'; // Reset to 'X' starting the game
+    winnerMessage.style.display = "none"; // Hide the winner message
+    for (let i = 0; i < 9; i++) {
+        document.getElementById(`cell-${i}`).textContent = ""; // Clear each cell in the HTML grid
+    }
+}
 
-
+/* [5.1] ← Notes → 
+we have a reset function that clears the inner cells of the board &
+removes the winner message. */
