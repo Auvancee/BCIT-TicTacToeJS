@@ -1,17 +1,17 @@
 /* [0] Fonts & Basic Initialization */
 @font-face {
     font-family: 'Landour-Regular-Display';
-    src: url(/0-fonts/landour-regulardisplay.otf);
+    src: url(0-fonts/landour-regulardisplay.otf);
 }
 
 @font-face {
     font-family: 'Landour-Regular';
-    src: url(/0-fonts/landour-regulartext.otf);
+    src: url(0-fonts/landour-regulartext.otf);
 }
 
 @font-face {
     font-family: 'Engine-Brake-Regular';
-    src: url(/0-fonts/Engine-Brake-Regular.ttf);
+    src: url(0-fonts/Engine-Brake-Regular.ttf);
 }
 
 
