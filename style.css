@@ -1,7 +1,24 @@
 /* [0] Fonts & Basic Initialization */
+@font-face {
+    font-family: 'Landour-Regular-Display';
+    src: url(/0-fonts/landour-regulardisplay.otf);
+}
+
+@font-face {
+    font-family: 'Landour-Regular';
+    src: url(/0-fonts/landour-regulartext.otf);
+}
+
+@font-face {
+    font-family: 'Engine-Brake-Regular';
+    src: url(/0-fonts/Engine-Brake-Regular.ttf);
+}
+
+
 
 body {
     font-family: Arial, sans-serif;
+    background-color: rgb(196, 180, 93);
 }
 
 .GameContainter {
@@ -11,8 +28,21 @@ body {
     margin-top: 20vh;
 }
 
-h1, h2 {
+.GameContainter p {
     text-align: center;
+    max-width: 450px;
+    font-size: 1rem;
+    font-family: 'Landour-Regular-Display';
+}
+
+.GameContainter h1 {
+    text-transform: uppercase;
+}
+
+h1, h2 {
+    font-family: 'Landour-Regular';
+    text-align: center;
+    margin: 0;
 }
 
 .winnerMessage {
@@ -33,15 +63,50 @@ h1, h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 5rem;
     background-color: #f0f0f0;
     border: 2px solid #333;
     cursor: pointer;
+    font-family: 'Engine-Brake-Regular';
 }
 
 #resetButton {
-    align-items: center;
+    background-color: #8b8aec; 
+    color: white;
+    padding: 10px 80px;
+    font-size: 1rem;
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+    font-family: 'Landour-Regular';
+    margin-top: 30px;
+}
+
+#resetButton:hover {
+    background-color: #504f86;
 }
 
 
 
+
+
+@media (min-width: 50em) {
+
+    .GameContainter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 4vh;
+    }
+    
+    .GameContainter p {
+        text-align: center;
+        max-width: 500px;
+    }
+
+    .grid {
+        width: 600px;
+        height: 600px;
+    }
+}

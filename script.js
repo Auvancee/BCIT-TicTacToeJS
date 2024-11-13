@@ -3,6 +3,8 @@ const board = Array(9).fill(null);
 const winnerMessage = document.getElementById("winnerMessage"); 
 let currentPlayer = 'X'; // Tracks the current player ('X' or 'O')
 
+let gameOver = false; // Added a variable for ending the game if one or the other wins or ties.
+
 for (let i = 0; i < 9; i++) {
     document.getElementById(`cell-${i}`).addEventListener("click", function() {
       cellClick(i);
@@ -68,6 +70,10 @@ l31 - conditions
 
 /* [4] Cell Handling On Click Event */
 function cellClick(innerCells) {
+
+    if (gameOver) return; // <-  !! CHATGPT CODE !! 
+
+
     if (board[innerCells] === null) { 
       board[innerCells] = currentPlayer; 
       document.getElementById(`cell-${innerCells}`).textContent = currentPlayer; // Display the move in HTML
@@ -76,10 +82,14 @@ function cellClick(innerCells) {
       if (checkWin()) { // Check if the current player won
         winnerMessage.textContent = `${currentPlayer} wins!`;
         winnerMessage.style.display = "block"; // Show the winner message
+        gameOver = true; // <-  !! CHATGPT CODE !! 
+
 
       } else if (!board.includes(null)) { // If no empty cells remain, it's a tie
         winnerMessage.textContent = "It's a tie!";
         winnerMessage.style.display = "block"; // Show tie message
+        gameOver = true; // <-  !! CHATGPT CODE !! 
+
       } else { // Switch turns if no win or tie
         currentPlayer = currentPlayer === 'X' ? 'O' : 'X'; // Toggle the player
       }
