@@ -109,8 +109,10 @@ l31 - We have a checkWin Function condition, a follow up from cellClick.
 
 /* [5] Reset Function (To reset the game) */
 function resetGame() {
+    
     board.fill(null); // Clear the board array
     currentPlayer = 'X'; // Reset to 'X' starting the game
+    gameOver = false;
     winnerMessage.style.display = "none"; // Hide the winner message
     for (let i = 0; i < 9; i++) {
         document.getElementById(`cell-${i}`).textContent = ""; // Clear each cell in the HTML grid
